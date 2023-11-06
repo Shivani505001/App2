@@ -1,0 +1,19 @@
+{% extends 'base.html'%}
+{% block content%}
+<h2>Creating objects</h2>
+{%if not created %}
+    <form  method='POST'> 
+        {% comment %} for sending data into backend we use POST {% endcomment %}
+        {% csrf_token %}
+        {% comment %} <div style='margin-top:30px'>
+        <input type='text' name='title' /></div>
+        <div style='margin-top:30px'>
+        <textarea name='content' placeholder='content'></textarea></div>
+        <div style='margin-top:30px'> {% endcomment %}
+            {{form.as_p}}
+        <button type='submit'>Create</button></div>
+    </form>
+{%else%}
+    <a href='/article/{{object.id}}'>{{object.title}}-{{object.content}}</a>
+{%endif%}
+{% endblock %}

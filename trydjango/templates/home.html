@@ -1,0 +1,19 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+
+    <h1>{{ title }} (id : {{ id }})</h1>
+    <p>{{ context }}</p>
+    <ul>{% for i in mylist %}
+        {%if i.title %}
+        {% comment %} <li>{{i}}</li> {% endcomment %}
+          
+        <li><a href = '/article/{{i.id}}/'>{{i.title}} - {{i.content}}   -    <button><a href =''>delete</button>  </li>  
+            {%endif%}
+        {%endfor%}
+    </ul>
+    <button><a href ='article/create'>create</button>
+   
+{% endblock %}
